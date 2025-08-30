@@ -21,5 +21,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(displayCurrentTime, 1000);
-    //setInterval(displaySensorData, 5000);
+    setInterval(displaySensorData, 5000);
 });

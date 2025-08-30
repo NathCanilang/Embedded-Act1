@@ -13,7 +13,19 @@ class Sensor_Data:
 
 
 class DHT11_Data:
+    _instance = None  # singleton instance
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
     def __init__(self):
+
+        if hasattr(self, "_initialized") and self._initialized:
+            return  # prevent re-init on reload
+        self._initialized = True
+        
         self.dht11 = adafruit_dht.DHT11(board.D23, use_pulseio= False) #GPIO 23 ang kanyang pin sa raspi
         self.readings = []
         self.currentIndex = 0
