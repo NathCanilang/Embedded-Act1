@@ -3,7 +3,6 @@ from dht11 import DHT11_Data, Sensor_Data
 app = Flask(__name__)
 
 dht11 = DHT11_Data()
-dht11.read_loop()
 
 @app.route('/')
 def index():
@@ -21,6 +20,5 @@ def get_current_data():
     
 if __name__ == '__main__':
     app.run()
-    dht11.read_loop()
 
 
