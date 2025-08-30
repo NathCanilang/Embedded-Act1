@@ -1,25 +1,24 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
+    const timeText = document.getElementById("timeDisplay");
+    const tempText = document.getElementById("temperatureDisplay");
+    const humidityText = document.getElementById("humidityDisplay");
 
-    timeText=this.getElementById("timeDisplay");
-    tempText = this.getElementById("temperatureDisplay")
-    humidityText = this.getElementById("humidityDisplay");
-
-    function displayCurrentTime(){
+    function displayCurrentTime() {
         const currentTime = new Date();
         const formattedTime = currentTime.toLocaleTimeString();
         timeText.textContent = formattedTime;
-    };
+    }
 
-    function displaySensorData(){
+    function displaySensorData() {
         fetch('/get_current_data')
-        .then(response => response.json())
-        .then(data => {
+            .then(response => response.json())
+            .then(data => {
                 console.log("Received Data:", data);
                 tempText.textContent = "Temperature: " + data.temperature;
                 humidityText.textContent = "Humidity: " + data.humidity;
-        })
-        .catch(error=> console.log("Error fetching data: ", error));
-    };
+            })
+            .catch(error => console.log("Error fetching data: ", error));
+    }
 
     setInterval(displayCurrentTime, 1000);
     setInterval(displaySensorData, 5000);
