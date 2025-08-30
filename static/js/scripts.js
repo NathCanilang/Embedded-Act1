@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 tempText.textContent = "Temperature: " + data.temperature + " °C";
                 humidityText.textContent = "Humidity: " + data.humidity + "%";
 
-                if(data.temperature <= 38.0){
+                if(data.temperature >= 38.0){
                     startBuzzer();
                 }
                 else{
