@@ -44,8 +44,9 @@ class DHT11_Data:
                 print("The current index is now in: {}".format(self.currentIndex))
                 self.readings.insert(self.currentIndex, self.currentReading)
                 '''
-            except:
-                pass
+            except Exception as e:
+                print("Sensor read error: {e}")
+                #pass
             time.sleep(2.0)
 
     def get_current_reading(self):
