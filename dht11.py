@@ -32,12 +32,14 @@ class DHT11_Data:
 
                 #shit implementation of a circular array
                 if len(self.readings) < 20:
+                    print (f"Test temp: {self.temp}")
+                    print (f"Test hum: {self.humidity}")
                     self.readings.append(self.currentReading)
                 else:
-                    self.readings[self.currentReading] = self.currentReading
+                    self.readings[self.currentIndex] = self.currentReading
                 self.currentIndex = (self.currentIndex + 1) % 20
 
-                print ("Current Index: ".format(self.currentIndex))
+                print (f"Current Index: {self.currentIndex}")
                 
                 '''
                 #debugger statement
