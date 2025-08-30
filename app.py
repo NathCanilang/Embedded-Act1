@@ -10,7 +10,7 @@ def index():
 
 @app.route('/get_current_data')
 def get_current_data():
-    sensor_data = dht11.get_current_reading()
+    sensor_data = dht11.get_current_reading()   
     if not sensor_data:
         return jsonify({"error": "Sensor error"}), 400
     else:

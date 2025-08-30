@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function displaySensorData(){
         fetch('/get_current_data')
-        .then(response => response.json)
+        .then(response => response.json())
         .then(data => {
             console.log(`Received Data: ${data}`);
             tempText =  "Temparature: " + data.temperature;
