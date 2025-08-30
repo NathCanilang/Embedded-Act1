@@ -25,8 +25,8 @@ def start_buzzer():
     return jsonify({"status": "buzzer started"})
 
 @app.route('/stop_buzzer', methods=["POST"])
-def stop_buzzzer():
-    buzzer.stop
+def stop_buzzer():
+    buzzer.stop()
     return jsonify({"status": "buzzer stopped"})
 
 if __name__ == '__main__':
