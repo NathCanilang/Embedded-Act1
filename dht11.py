@@ -28,7 +28,7 @@ class DHT11_Data:
                 self.temp = self.dht11.temperature #celsius
                 self.humidity = self.dht11.humidity
 
-                self.currentReading = DHT11_Data(self.temp, self.humidity)
+                self.currentReading = Sensor_Data(self.temp, self.humidity)
 
                 #shit implementation of a circular array
                 if len(self.currentIndex) < 20:
