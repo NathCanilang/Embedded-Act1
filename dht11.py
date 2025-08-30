@@ -36,6 +36,8 @@ class DHT11_Data:
                 else:
                     self.readings[self.currentReading] = self.currentReading
                 self.currentIndex = (self.currentIndex + 1) % 20
+
+                print ("Current Index: ".format(self.currentIndex))
                 
                 '''
                 #debugger statement
@@ -47,4 +49,5 @@ class DHT11_Data:
             time.sleep(2.0)
 
     def get_current_reading(self):
+        print ("Index Returned: ".format(self.currentIndex))
         return self.readings[self.currentIndex]
