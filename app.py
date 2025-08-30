@@ -16,6 +16,8 @@ def get_current_data():
     return jsonify({
         "temperature": sensor_data.temperature,
         "humidity": sensor_data.humidity    })
+
+
 if __name__ == '__main__':
     app.run()
 

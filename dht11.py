@@ -51,8 +51,10 @@ class DHT11_Data:
 
     def get_current_reading(self):
         if not self.readings:
+                print("No readings stored yet")
                 return None 
-            
+        
         last_index = (self.currentIndex - 1) % len(self.readings)
-        print(f"Index Returned: {last_index}")
-        return self.readings[last_index]
+        reading = self.readings[last_index]
+        print(f"Returning reading from index {last_index}: {reading.temperature}C, {reading.humidity}%")
+        return reading
