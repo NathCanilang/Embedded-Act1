@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", function(){
         fetch('/get_current_data')
         .then(response => response.json())
         .then(data => {
-            console.log(`Received Data: ${data}`);
-            tempText =  "Temparature: " + data.temperature;
-            humidityText = "Humidity: " + data.humidity;
-
+                console.log("Received Data:", data);
+                tempText.textContent = "Temperature: " + data.temperature;
+                humidityText.textContent = "Humidity: " + data.humidity;
         })
         .catch(error=> console.log("Error fetching data: ", error));
     };
