@@ -35,14 +35,14 @@ class DHT11_Data:
 
                 #shit implementation of a circular array
                 if len(self.readings) < 20:
-                    #print (f"Test temp: {self.temp}")
-                    #print (f"Test hum: {self.humidity}")
+                    print (f"Test temp: {self.temp}")
+                    print (f"Test hum: {self.humidity}")
                     self.readings.append(self.currentReading)
                 else:
                     self.readings[self.currentIndex] = self.currentReading
                 self.currentIndex = (self.currentIndex + 1) % 20
 
-                #print (f"Current Index: {self.currentIndex}")
+                print (f"Current Index: {self.currentIndex}")
                 
             except Exception as e:
                 print(f"Sensor read error: {e}")
@@ -50,5 +50,9 @@ class DHT11_Data:
             time.sleep(2.0)
 
     def get_current_reading(self):
-        print("Index Returned: ".format(self.currentIndex))
-        return self.readings[self.currentIndex]
+        if not self.readings:
+                return None 
+            
+        last_index = (self.currentIndex - 1) % len(self.readings)
+        print(f"Index Returned: {last_index}")
+        return self.readings[last_index]
