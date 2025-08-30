@@ -31,14 +31,17 @@ class DHT11_Data:
                 self.currentReading = DHT11_Data(self.temp, self.humidity)
 
                 #shit implementation of a circular array
-                if self.currentIndex > 20:
-                    self.currentIndex = 0
+                if len(self.currentIndex) < 20:
+                    self.readings.append(self.currentReading)
                 else:
-                    self.currentIndex += 1
+                    self.readings[self.currentReading] = self.currentReading
+                self.currentIndex = (self.currentIndex + 1) % 20
                 
+                '''
                 #debugger statement
                 print("The current index is now in: {}".format(self.currentIndex))
                 self.readings.insert(self.currentIndex, self.currentReading)
+                '''
             except:
                 pass
             time.sleep(2.0)

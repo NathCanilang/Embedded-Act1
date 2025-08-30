@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name = "viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <title>
     TEMPERATURE AND HUMIDITY SENSOR WITH WEBSITE
 </title>
@@ -14,26 +14,10 @@
     </div>
 
     <div class="sensorInterface">
-        <h2 class="time">
-            12:01:45 PM
-        </h2>
-
-        <h1 class="temperature">
-            Temperature: 34°C
-        </h1>
-
-        <h1 class="humidity">
-            Humidity: 70%
-        </h1>
-
-        <button class="startRecording">
-            Start Recording
-        </button>
-
-        <br>
-        <button class="stopRecording">
-            Stop Recording
-        </button>
+        <h2 id="timeDisplay"></h2>
+        <h1 id="temperatureDisplay"></h1>
+        <h1 id="humidityDisplay"></h1>
     </div>
 </body>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </html>
