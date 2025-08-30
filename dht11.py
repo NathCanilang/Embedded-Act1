@@ -14,7 +14,7 @@ class Sensor_Data:
 
 class DHT11_Data:
     def __init__(self):
-        self.dht11 = adafruit_dht.DHT11(board.D23, use_pulseio=True) #GPIO 23 ang kanyang pin sa raspi
+        self.dht11 = adafruit_dht.DHT11(board.D23, use_pulseio= False) #GPIO 23 ang kanyang pin sa raspi
         self.readings = []
         self.currentIndex = 0
         
@@ -35,14 +35,12 @@ class DHT11_Data:
 
                 #shit implementation of a circular array
                 if len(self.readings) < 20:
-                    print (f"Test temp: {self.temp}")
-                    print (f"Test hum: {self.humidity}")
                     self.readings.append(self.currentReading)
                 else:
                     self.readings[self.currentIndex] = self.currentReading
                 self.currentIndex = (self.currentIndex + 1) % 20
 
-                print (f"Current Index: {self.currentIndex}")
+                print(f"Readings length: {len(self.readings)}")
                 
             except Exception as e:
                 print(f"Sensor read error: {e}")
