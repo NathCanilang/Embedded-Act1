@@ -45,7 +45,7 @@ class DHT11_Data:
                 self.readings.insert(self.currentIndex, self.currentReading)
                 '''
             except Exception as e:
-                print("Sensor read error: {e}")
+                print(f"Sensor read error: {e}")
                 #pass
             time.sleep(2.0)
 
