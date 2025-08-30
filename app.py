@@ -21,4 +21,6 @@ def get_current_data():
     
 if __name__ == '__main__':
     app.run()
+    dht11.read_loop()
+
 
