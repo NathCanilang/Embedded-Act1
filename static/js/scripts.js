@@ -22,23 +22,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const formattedTime = currentTime.toLocaleTimeString();
     timeText.textContent = formattedTime;
   }
+const alertImage = document.getElementById("alertImage");
 
-  function displaySensorData() {
-    fetch("/get_current_data")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Received Data:", data);
-        tempText.textContent = "Temperature: " + data.temperature + " °C";
-        humidityText.textContent = "Humidity: " + data.humidity + "%";
+function displaySensorData() {
+  fetch("/get_current_data")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Received Data:", data);
+      tempText.textContent = data.temperature + " °C";
+      humidityText.textContent = data.humidity + "%";
 
-        if (data.temperature >= 38.0) {
-          startBuzzer();
-        } else {
-          stopBuzzer();
-        }
-      })
-      .catch((error) => console.log("Error fetching data: ", error));
-  }
+      if (data.temperature >= 38.0) {
+        alertImage.classList.add("shake"); // start shaking
+        startBuzzer();
+        
+      } else {
+        alertImage.classList.remove("shake");
+        stopBuzzer();
+         // stop shaking
+      }
+      displayChartDataFromDB()
+    })
+    .catch((error) => console.log("Error fetching data: ", error));
+}
 
   //for chart
   const canvas = document.getElementById("dht11Chart").getContext("2d");
@@ -117,5 +123,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(displayCurrentTime, 1000);
   setInterval(displaySensorData, 5000);
-  setInterval(displayChartDataFromDB, 5000);
 });

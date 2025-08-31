@@ -9,15 +9,21 @@
 </title>
 </head>
 <body>
+    <div class="title">
+        <h1>DHT11 MONITOR</h1>
+    </div>
     <div id="container">
         <div class="chart">
             <canvas id="dht11Chart" width="900px" height="500px"></canvas> <!--palitan size if need-->
         </div>
 
         <div class="sensorInterface">
-            <h2 id="timeDisplay"></h2>
-            <h1 id="temperatureDisplay"></h1>
-            <h1 id="humidityDisplay"></h1>
+            <p class="timeInfo" id="timeDisplay"></p>
+            <p>Temperature:</p>
+            <p class="tempInfo" id="temperatureDisplay"></p>
+            <p>Humidity:</p>
+            <p class="humidInfo" id="humidityDisplay"></p>
+            <img id="alertImage" src="../static/assets/notifications_250dp_434343_FILL0_wght400_GRAD0_opsz48.png" alt="Bell" width="150">
         </div>
     </div>
 </body>

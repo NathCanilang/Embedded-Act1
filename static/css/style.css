@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    background-color: #F1F1F1;
+}
 #container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 10%
+    margin: 10%;
+    padding-right: 10px;
+    background-color: #F1F1F1;
+}
+
+.title{
+    color: #101010;
+    font-family: "Montserrat", sans-serif;
 }
 
 .chart {
@@ -11,6 +22,49 @@
 
 .sensorInterface
 {
-    color: black;
+    color: #101010;
+    font-family: "Montserrat", sans-serif;
+}
+.timeInfo{
+    font-weight: bold;
+    font-size: xx-large;
+}
+.tempInfo{
+    font-weight: bold;
+    font-size: x-large;
+    border-style: solid;
+    margin-top: -10px;
+    padding: 5%;
+    border-radius: 10px;
+    border-color: rgba(0, 90, 150, 0.5);
+    background-color:rgba(0, 90, 150, 0.5);
+}
+.humidInfo{
+    font-weight: bold;
+    font-size: x-large;
+    border-style: solid;
+    margin-top: -10px;
+    padding: 5%;
+    border-radius: 10px;
+    border-color: rgba(0, 90, 150, 0.5);
+    background-color:rgba(0, 90, 150, 0.5);
 }
 
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Class to activate shake */
+.shake {
+    animation: shake 0.5s infinite;
+}
