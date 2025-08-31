@@ -9,15 +9,18 @@
 </title>
 </head>
 <body>
-    <div>
+    <div id="container">
+        <div class="chart">
+            <canvas id="dht11Chart" width="900px" height="500px"></canvas> <!--palitan size if need-->
+        </div>
 
-    </div>
-
-    <div class="sensorInterface">
-        <h2 id="timeDisplay"></h2>
-        <h1 id="temperatureDisplay"></h1>
-        <h1 id="humidityDisplay"></h1>
+        <div class="sensorInterface">
+            <h2 id="timeDisplay"></h2>
+            <h1 id="temperatureDisplay"></h1>
+            <h1 id="humidityDisplay"></h1>
+        </div>
     </div>
 </body>
+<script src="{{ url_for('static', filename='js/chart.umd.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </html>

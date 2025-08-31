@@ -1,10 +1,16 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10%
+}
+
+.chart {
+    color: azure;
+}
+
 .sensorInterface
 {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding-left: 900px;
+    color: black;
 }
 
